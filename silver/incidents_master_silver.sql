@@ -1,0 +1,43 @@
+
+DROP TABLE IF EXISTS workspace.silver.incidents_master;
+
+CREATE TABLE IF NOT EXISTS workspace.silver.incidents_master (
+  incident_id STRING,
+  company_name STRING,
+  company_revenue_usd DOUBLE,
+  country_hq STRING,
+  industry_primary STRING,
+  industry_secondary STRING,
+  employee_count INT,
+  is_public_company BOOLEAN,
+  stock_ticker STRING,
+  incident_date DATE,
+  incident_date_estimated BOOLEAN,
+  discovery_date DATE,
+  disclosure_date DATE,
+  attack_vector_primary STRING,
+  attack_vector_secondary STRING,
+  attack_chain STRING,
+  attributed_group STRING,
+  attribution_confidence STRING,
+  data_compromised_records BIGINT,
+  data_type STRING,
+  systems_affected STRING,
+  downtime_hours DOUBLE,
+  data_source_primary STRING,
+  data_source_secondary STRING,
+  data_source_type STRING,
+  confidence_tier INT,
+  quality_score DOUBLE,
+  quality_grade STRING,
+  review_flag STRING,
+  notes STRING,
+  created_at_bronze TIMESTAMP,
+  updated_at_bronze TIMESTAMP,
+  ingestion_timestamp_bronze TIMESTAMP,
+  source_file STRING,
+  date_quality_flag STRING,
+  dq_issue_count INT,
+  ingestion_timestamp_silver TIMESTAMP
+)
+USING DELTA;
