@@ -1,8 +1,6 @@
+DROP TABLE IF EXISTS workspace.silver.financial_impact;
 
-
-
-
-CREATE TABLE IF NOT EXISTS workspace.silver.financial_impact (
+CREATE TABLE workspace.silver.financial_impact (
   incident_id               STRING,
   direct_loss_method        STRING,
   total_loss_method         STRING,
@@ -26,9 +24,10 @@ CREATE TABLE IF NOT EXISTS workspace.silver.financial_impact (
   cpi_year                  INT,
   cpi_value                 DECIMAL(10,2),
 
-  created_at                TIMESTAMP,
-  updated_at                TIMESTAMP,
-  ingestion_timestamp       TIMESTAMP,
+  -- ✅ Bronze lineage (same naming convention as previous silver)
+  created_at_bronze                TIMESTAMP,
+  updated_at_bronze                TIMESTAMP,
+  ingestion_timestamp_bronze        TIMESTAMP,
 
   ransom_paid_flag          INT,
   insured_flag              INT,
@@ -38,6 +37,7 @@ CREATE TABLE IF NOT EXISTS workspace.silver.financial_impact (
   loss_range_valid_flag     INT,
   data_quality_flag         INT,
 
-  silver_processed_at       TIMESTAMP
+  -- ✅ Silver processed timestamp
+  ingestion_timestamp_silver       TIMESTAMP
 )
 USING DELTA;
