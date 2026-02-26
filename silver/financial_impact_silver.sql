@@ -24,10 +24,10 @@ CREATE TABLE workspace.silver.financial_impact (
   cpi_year                  INT,
   cpi_value                 DECIMAL(10,2),
 
-  -- ✅ Bronze lineage (same naming convention as previous silver)
-  created_at_bronze                TIMESTAMP,
-  updated_at_bronze                TIMESTAMP,
-  ingestion_timestamp_bronze        TIMESTAMP,
+  -- ✅ Bronze lineage (consistent with previous silver style)
+  created_at_bronze               TIMESTAMP,
+  updated_at_bronze               TIMESTAMP,
+  ingestion_timestamp_bronze       TIMESTAMP,
 
   ransom_paid_flag          INT,
   insured_flag              INT,
@@ -37,7 +37,10 @@ CREATE TABLE workspace.silver.financial_impact (
   loss_range_valid_flag     INT,
   data_quality_flag         INT,
 
-  -- ✅ Silver processed timestamp
+  -- ✅ Missing columns required by your MERGE logic
+  financial_quality_flag    STRING,
+  dq_issue_count            INT,
+
   ingestion_timestamp_silver       TIMESTAMP
 )
 USING DELTA;
