@@ -4,6 +4,7 @@
 --DQ rules: incident_id not null, CPI parsing, loss range sanity
 --Dedup rule: winner per incident_id by ingestion_timestamp_bronze, updated_at_bronze, created_at_bronze, completeness_score, source_file
 --num_affected_rows  num_inserted_rows -> validate after run
+--rows consistency with the bronze layer
 
 WITH base AS (
   SELECT
